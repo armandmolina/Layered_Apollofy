@@ -1,0 +1,15 @@
+POST http://localhost:8080/api/djlist/1/tracks
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJqYWxjb2JlQHRlY25vY2FtcHVzLmNhdCIsImF1dGhvcml0aWVzIjpbeyJhdXRob3JpdHkiOiJST0xFX1BST0ZFU1NJT05BTCJ9XSwiaWF0IjoxNjcxNTczOTUyLCJleHAiOjE2NzIzNTQ4MDB9.eeztC8RVjQ-xqgQ7cZEFjSqi6pJQdjvewFoVbhXpk02tlXyaiahwhNEQno1RnZLAQKva3_I9mRlOFr4WF_QJog
+Content-Type: application/json
+
+[{
+    "trackId" : 1,
+    "startTimeMillis": 3000,
+    "endTimeMillis": 4003
+},
+  {
+    "trackId" : 2,
+    "startTimeMillis": 3009,
+    "endTimeMillis": 4001
+  }
+]

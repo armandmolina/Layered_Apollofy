@@ -1,0 +1,51 @@
+
+###
+GET localhost:8080/api/tracks
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJqYWxjb2JlQHRlY25vY2FtcHVzLmNhdCIsImF1dGhvcml0aWVzIjpbeyJhdXRob3JpdHkiOiJST0xFX1BST0ZFU1NJT05BTCJ9XSwiaWF0IjoxNjcxNDkzMTQ1LCJleHAiOjE2NzIzNTQ4MDB9.uAlOi2ZlwxfMW571FB3Cds4FUXO6se1IFIZqK7P7NKz8uN68XbkWM5fLq6I8pBTxdD6L2sUn-wSNKS-MHvNhJA
+
+###
+GET localhost:8080/api/tracks/1
+
+###
+GET localhost:8080/api/top/tracks?size=2&from=2021-11-30&to=2022-12-06
+
+
+###
+POST localhost:8080/api/tracks
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJqYWxjb2JlQHRlY25vY2FtcHVzLmNhdCIsImF1dGhvcml0aWVzIjpbeyJhdXRob3JpdHkiOiJST0xFX1BST0ZFU1NJT05BTCJ9XSwiaWF0IjoxNjcxNDkzMTQ1LCJleHAiOjE2NzIzNTQ4MDB9.uAlOi2ZlwxfMW571FB3Cds4FUXO6se1IFIZqK7P7NKz8uN68XbkWM5fLq6I8pBTxdD6L2sUn-wSNKS-MHvNhJA
+
+{
+  "title": "Singing in the rain",
+  "durationSeconds": 129,
+  "artists": [
+    {"email" :  "jalvarez@tecnocampus.cat"},
+    {"email" :  "mperez@tecnocampus.cat"}
+  ],
+  "genres": [
+    {
+      "id": 1,
+      "name": "Soul"
+    }
+  ]
+}
+
+###
+PUT localhost:8080/api/tracks/1/artists
+Content-Type: application/json
+
+ ["jalcobe@tecnocampus.cat"]
+
+###
+PUT http://localhost:8080/api/tracks/1/genres
+Content-Type: application/json
+
+[2,4]
+
+###
+GET http://localhost:8080/api/top/tracks
+
+
+###
+GET http://localhost:8080/api/top/genres
+

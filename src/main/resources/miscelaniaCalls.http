@@ -1,0 +1,101 @@
+POST http://localhost:8080/login
+Content-Type: application/json
+
+{
+  "username": "jalcobe@tecnocampus.cat",
+  "password": "password123"
+}
+> {%
+    client.global.set("auth_token", response.headers.valueOf("Authorization"));
+    client.log("token: " + response.headers.valueOf("Authorization"));
+%}
+
+###
+POST http://localhost:8080/login
+Content-Type: application/json
+
+{
+  "username": "mperez@tecnocampus.cat",
+  "password": "password123"
+}
+> {%
+    client.global.set("auth_token", response.headers.valueOf("Authorization"));
+    client.log("token: " + response.headers.valueOf("Authorization"));
+%}
+
+
+### Q3
+GET localhost:8080/api/tracks/25
+Authorization: {{auth_token}}
+
+
+### Q1.lower
+POST localhost:8080/api/tracks
+Content-Type: application/json
+Authorization: {{auth_token}}
+
+{
+  "title": "lower case track",
+  "durationSeconds": 2,
+  "artists": [
+    {"email" :  "jalvarez@tecnocampus.cat"},
+    {"email" :  "mperez@tecnocampus.cat"}
+  ],
+  "genres": [
+    {
+      "id": 1,
+      "name": "Soul"
+    }
+  ]
+}
+
+
+### Q1.upper
+POST localhost:8080/api/tracks
+Content-Type: application/json
+Authorization: {{auth_token}}
+
+{
+  "title": "Upper case track",
+  "durationSeconds": 200,
+  "artists": [
+    {"email" :  "jalvarez@tecnocampus.cat"},
+    {"email" :  "mperez@tecnocampus.cat"}
+  ],
+  "genres": [
+    {
+      "id": 1,
+      "name": "Soul"
+    }
+  ]
+}
+
+
+
+### Q4
+POST http://localhost:8080/api/djlist/1/tracks
+Authorization: {{auth_token}}
+Content-Type: application/json
+
+[{
+  "trackId" : 1,
+  "startTimeMillis": 3000,
+  "endTimeMillis": 4003
+},
+  {
+    "trackId" : 2,
+    "startTimeMillis": 3009,
+    "endTimeMillis": 4001
+  }
+]
+
+
+### Q5
+GET http://localhost:8080/api/tracksCore
+Authorization: {{auth_token}}
+
+
+
+### new fan
+POST http://localhost:8080/api/user/fanOf/jalvarez@tecnocampus.cat
+Authorization: {{auth_token}}
